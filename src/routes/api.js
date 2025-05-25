@@ -225,16 +225,16 @@ async function generateFinalAnswer(userQuestion, extractedContent, chatHistory =
     }
 
     const prompt = `You are an expert cricket assistant. Answer the user's question using the provided context and conversation history. 
-RESPONSE REQUIREMENTS:
-- Be concise and to the point 
-- Use proper formatting with line breaks
-- Focus only on answering the question asked
-- Use bullet points for multiple items
-${conversationContext}
-Current question: ${userQuestion}
-Available context:
-${contextData}
-Provide a strictly well-formatted, concise response:`;
+    RESPONSE REQUIREMENTS:
+    - Be concise and to the point 
+    - Use proper formatting with line breaks
+    - Focus only on answering the question asked
+    - Use bullet points for multiple items
+    ${conversationContext}
+    Current question: ${userQuestion}
+    Available context:
+    ${contextData}
+    Provide a strictly well-formatted, accurate answer:`;
 
     try {
         const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash"});

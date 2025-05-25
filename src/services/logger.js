@@ -34,11 +34,15 @@ class Logger {
     }
 
     _formatMessage(level, message, data = null) {
-        const timestamp = new Date().toISOString();
+        const timestamp = new Date().toISOString().split('T')[1].split('.')[0]; // Only time, not full timestamp
         const logMessage = `[${timestamp}] [${level.toUpperCase()}] ${message}`;
         
         if (data) {
-            return `${logMessage} ${typeof data === 'object' ? JSON.stringify(data, null, 2) : data}`;
+            // Make data output more compact
+            const dataStr = typeof data === 'object' ? 
+                JSON.stringify(data, null, 0) : // No indentation for console
+                data;
+            return `${logMessage} ${dataStr}`;
         }
         
         return logMessage;
@@ -134,15 +138,15 @@ class Logger {
 
     // Specific methods for cricket chatbot components
     search(message, data = null) {
-        this.debug(`[SEARCH] ${message}`, data);
+        this.info(`[SEARCH] ${message}`, data);
     }
 
     extraction(message, data = null) {
-        this.debug(`[EXTRACTION] ${message}`, data);
+        this.info(`[EXTRACTION] ${message}`, data);
     }
 
     ai(message, data = null) {
-        this.debug(`[AI] ${message}`, data);
+        this.info(`[AI] ${message}`, data);
     }
 
     api(message, data = null) {
@@ -170,7 +174,7 @@ class Logger {
 // Create singleton instance with environment-based configuration
 const logger = new Logger({
     enabled: process.env.LOGGING_ENABLED !== 'false',
-    level: process.env.LOG_LEVEL || 'info',
+    level: process.env.LOG_LEVEL || 'debug', // Changed to debug to show all logs
     logToFile: process.env.LOG_TO_FILE !== 'false',
     logToConsole: process.env.LOG_TO_CONSOLE !== 'false'
 });

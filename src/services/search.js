@@ -78,7 +78,7 @@ async function searchDuck(term, numResults = 10, opts = {}) {
 // If run as a script, perform a test search and print results
 if (require.main === module) {
   (async () => {
-    const term = process.argv[2] || "What is the latest score in the IPL match?";
+    const term = process.argv[2] || 'javascript concurrency';
     const num = parseInt(process.argv[3], 10) || 5;
     const opts = { advanced: true, unique: true };
     try {

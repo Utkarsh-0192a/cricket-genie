@@ -27,7 +27,7 @@ class ContentExtractor {
         this.options = {
             maxConcurrent: options.maxConcurrent || 3, // Reduced for better stability
             timeout: options.timeout || 45000, // Increased timeout
-            retries: options.retries || 3, // Increased retries
+            retries: options.retries || 2, // Reduced retries as requested
             headless: options.headless !== false,
             extractImages: options.extractImages !== false,
             botBypass: true, // Always enable bot bypass
@@ -48,43 +48,54 @@ class ContentExtractor {
 
         logger.debug('Initializing browser with stealth mode');
 
-        const browserOptions = {
-            headless: this.options.headless ? 'new' : false, // Use new headless mode
-            slowMo: this.options.slowMo,
-            executablePath: executablePath(), // Use bundled chromium
-            args: [
-                '--no-sandbox',
-                '--disable-setuid-sandbox',
-                '--disable-dev-shm-usage',
-                '--disable-accelerated-2d-canvas',
-                '--no-first-run',
-                '--no-zygote',
-                '--disable-gpu',
-                '--disable-web-security',
-                '--disable-features=VizDisplayCompositor',
-                '--disable-blink-features=AutomationControlled',
-                '--disable-background-timer-throttling',
-                '--disable-backgrounding-occluded-windows',
-                '--disable-renderer-backgrounding',
-                '--disable-features=TranslateUI',
-                '--disable-ipc-flooding-protection',
-                '--enable-features=NetworkService,NetworkServiceLogging',
-                '--force-color-profile=srgb',
-                '--metrics-recording-only',
-                '--disable-default-apps',
-                '--mute-audio',
-                '--no-default-browser-check',
-                '--autoplay-policy=user-gesture-required',
-                '--disable-background-networking',
-                '--disable-client-side-phishing-detection',
-                '--disable-sync',
-                '--hide-scrollbars',
-                '--disable-extensions'
-            ]
-        };
+        try {
+            const browserOptions = {
+                headless: this.options.headless ? 'new' : false, // Use new headless mode
+                slowMo: this.options.slowMo,
+                executablePath: executablePath(), // Use bundled chromium
+                args: [
+                    '--no-sandbox',
+                    '--disable-setuid-sandbox',
+                    '--disable-dev-shm-usage',
+                    '--disable-accelerated-2d-canvas',
+                    '--no-first-run',
+                    '--no-zygote',
+                    '--disable-gpu',
+                    '--disable-web-security',
+                    '--disable-features=VizDisplayCompositor',
+                    '--disable-blink-features=AutomationControlled',
+                    '--disable-background-timer-throttling',
+                    '--disable-backgrounding-occluded-windows',
+                    '--disable-renderer-backgrounding',
+                    '--disable-features=TranslateUI',
+                    '--disable-ipc-flooding-protection',
+                    '--enable-features=NetworkService,NetworkServiceLogging',
+                    '--force-color-profile=srgb',
+                    '--metrics-recording-only',
+                    '--disable-default-apps',
+                    '--mute-audio',
+                    '--no-default-browser-check',
+                    '--autoplay-policy=user-gesture-required',
+                    '--disable-background-networking',
+                    '--disable-client-side-phishing-detection',
+                    '--disable-sync',
+                    '--hide-scrollbars',
+                    '--disable-extensions'
+                ]
+            };
 
-        this.browser = await puppeteer.launch(browserOptions);
-        logger.debug('Browser initialized successfully');
+            this.browser = await puppeteer.launch(browserOptions);
+            
+            if (!this.browser) {
+                throw new Error('Failed to initialize browser - browser instance is null');
+            }
+            
+            logger.debug('Browser initialized successfully');
+        } catch (error) {
+            logger.error('Failed to initialize browser', { error: error.message });
+            this.browser = null;
+            throw new Error(`Browser initialization failed: ${error.message}`);
+        }
     }
 
     /**
@@ -103,6 +114,13 @@ class ContentExtractor {
         let page = null;
         
         try {
+            // Ensure browser is initialized
+            await this.initialize();
+            
+            if (!this.browser) {
+                throw new Error('Browser instance is null after initialization');
+            }
+            
             page = await this.browser.newPage();
             
             // Advanced bot bypass configurations
@@ -509,6 +527,9 @@ class ContentExtractor {
         try {
             logger.extraction(`Starting extraction for: ${url}`);
 
+            // Ensure browser is initialized
+            await this.initialize();
+
             // Try Puppeteer first for JS-rendered content
             let html;
             try {
@@ -563,7 +584,12 @@ class ContentExtractor {
             throw new Error('URLs must be an array');
         }
 
-        await this.initialize();
+        try {
+            await this.initialize();
+        } catch (error) {
+            logger.error('Failed to initialize browser for multiple extractions', { error: error.message });
+            throw error;
+        }
 
         const results = [];
         const chunks = [];

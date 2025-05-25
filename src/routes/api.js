@@ -103,12 +103,8 @@ async function generateCricketResponse(message, chatHistory = []) {
     }
     
     const prompt = `You are an advanced cricket assistant. For the question I'm about to ask, provide only a single line with the most relevant search query that will help find current cricket information. Keep it concise and focused.
-
 ${conversationContext}
-
-Current question: ${message}
-
-Generate a focused search query (one line only):`;
+Current question: ${message}`;
 
     try {
         const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash"});
@@ -234,7 +230,7 @@ async function generateFinalAnswer(userQuestion, extractedContent, chatHistory =
     Current question: ${userQuestion}
     Available context:
     ${contextData}
-    Provide a strictly well-formatted, accurate answer:`;
+    Provide a strictly well-formatted, accurate more understandable answer:`;
 
     try {
         const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash"});

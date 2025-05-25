@@ -1,0 +1,442 @@
+[2025-05-25T12:35:16.886Z] [INFO] 🏏 Fantasy Cricket Chatbot Server running on http://localhost:3000 {
+  "port": 3000,
+  "environment": "development",
+  "logging": {
+    "enabled": true,
+    "level": "info"
+  }
+}
+[2025-05-25T12:35:28.221Z] [WARN] Route not found {
+  "url": "/favicon.ico",
+  "method": "GET"
+}
+[2025-05-25T12:35:57.995Z] [INFO] Successfully extracted content from: https://www.oddsshark.com/nfl/computer-picks {
+  "title": "Free NFL Picks – Expert Football Predictions | Odds Shark",
+  "contentLength": 3803,
+  "tablesFound": 0
+}
+[2025-05-25T12:36:00.732Z] [INFO] Successfully extracted content from: https://www.espn.com/nfl/picks {
+  "title": "2024 NFL Expert Picks | ESPN",
+  "contentLength": 194,
+  "tablesFound": 2
+}
+[2025-05-25T12:37:03.059Z] [INFO] Successfully extracted content from: https://www.espncricinfo.com/series/ipl-2025-1449924 {
+  "title": "IPL 2025 | Live Score, Schedule, News",
+  "contentLength": 1170,
+  "tablesFound": 1
+}
+[2025-05-25T12:37:12.505Z] [INFO] Successfully extracted content from: https://www.espn.com/cricket/scores/series/8048/season/2025/indian-premier-league {
+  "title": "Indian Premier League 2025 - Live Cricket Schedules, Updates, Results | ESPN.com",
+  "contentLength": 1765,
+  "tablesFound": 0
+}
+[16:00:54] [INFO] 🏏 Fantasy Cricket Chatbot Server running on http://localhost:3000 {"port":3000,"environment":"development","logging":{"enabled":true,"level":"info"}}
+[16:01:25] [WARN] Route not found {"url":"/favicon.ico","method":"GET"}
+[16:01:40] [ERROR] Failed to initialize GenAI: {}
+[16:01:40] [ERROR] Chat API error: {"error":"GEMINI_API_KEY is not set or empty","stack":"Error: GEMINI_API_KEY is not set or empty\n    at initializeGenAI (/home/utpal/cricket-genie/src/routes/api.js:20:23)\n    at async /home/utpal/cricket-genie/src/routes/api.js:36:9","message":"Team combination advice"}
+[16:01:58] [INFO] [API] Received message: todays match details ipl 25
+[16:01:58] [INFO] [API] Chat history length:
+[16:01:58] [ERROR] Error generating cricket response: {}
+[16:17:29] [INFO] 🏏 Fantasy Cricket Chatbot Server running on http://localhost:3000 {"port":3000,"environment":"development","logging":{"enabled":true,"level":"info"}}
+[16:17:51] [INFO] GenAI initialized successfully
+[16:17:51] [INFO] [API] Received message: todays match details
+[16:17:51] [INFO] [API] Chat history length:
+[16:17:54] [INFO] [SEARCH] Generated search term: cricket scores today
+[16:17:56] [INFO] [SEARCH] DuckDuckGo Search Results: {"count":5}
+[16:17:56] [INFO] [SEARCH] DuckDuckGo Search URLs: ["https://www.espncricinfo.com/live-cricket-score","https://www.bbc.co.uk/sport/cricket/scores-fixtures","https://www.cricbuzz.com/cricket-match/live-scores","https://www.espn.com/cricket/scores","https://m.cricbuzz.com/"]
+[16:17:56] [INFO] [EXTRACTION] Attempting extraction 1/5: https://www.espncricinfo.com/live-cricket-score
+[16:17:56] [INFO] [EXTRACTION] Starting extraction for: https://www.espncricinfo.com/live-cricket-score
+[16:17:56] [DEBUG] Initializing browser with stealth mode
+[16:17:59] [DEBUG] Browser initialized successfully
+[16:18:00] [INFO] [EXTRACTION] Navigating to: https://www.espncricinfo.com/live-cricket-score
+[16:18:18] [INFO] [EXTRACTION] Successfully extracted content from: https://www.espncricinfo.com/live-cricket-score {"contentLength":465861}
+[16:18:20] [INFO] Successfully extracted content from: https://www.espncricinfo.com/live-cricket-score {"title":"Live Cricket Score | Today's Cricket Match Scorecard & Commentary","contentLength":2493,"tablesFound":0}
+[16:18:20] [INFO] [EXTRACTION] First successful extraction from: https://www.espncricinfo.com/live-cricket-score
+[16:18:20] [INFO] [EXTRACTION] Successfully extracted content {"totalUrls":5,"successfulExtractions":1}
+[16:18:20] [DEBUG] Closing browser instance
+[16:18:20] [INFO] [AI] Generating response with Gemini {"promptLength":1970,"contextLength":1502,"question":"todays match details"}
+[16:18:27] [DEBUG] Generated final response: Today's match details:
+ 
+ *   **Sunrisers Hyderabad vs. Kolkata Knight Riders:**
+  *   Sunrisers Hyderabad: 278/3
+  *   Kolkata Knight Riders: (3/20 ov, T:279) 32/0
+  *   KKR need 247 runs in 102 balls.
+ *   **Chennai Super Kings vs. Gujarat Titans:**
+  *   Chennai Super Kings: 230/5
+  *   Gujarat Titans: (18.3/20 ov, T:231) 147
+  *   CSK won by 83 runs
+ *   **Mumbai Indians vs. Punjab Kings:** Match yet to begin
+ *   **West Indies vs. Ireland:**
+  *   West Indies: 385/7
+  *   Ireland: (9.4/46 ov, T:363) 42/3
+  *   Ireland need 321 runs from 36.2 overs.
+ *   **United States of America vs. Canada:**
+  *   United States of America: (32.5/50 ov) 168/5
+  *   U.S.A. chose to bat.
+ *   **England vs. Zimbabwe:**
+  *   England: 565/6d
+  *   Zimbabwe: (fo) 265 & 255
+  *   England won by an innings and 45 runs
+ *   **Durham vs. Somerset:**
+  *   Durham: 277 & 159
+  *   Somerset: (T:265) 172 & 267/3
+  *   Somerset won by 7 wickets
+ *   **Hampshire vs. Sussex:**
+  *   Hampshire: 154 & 165
+  *   Sussex: (T:23) 297 & 23/1
+  *   Sussex won by 9 wickets
+ *   **Essex vs. Surrey:**
+  *   Essex: (134.3 ov) 217 & 450/6
+  *   Surrey: 279
+  *   Day 3 - Essex lead by 388 runs.
+ *   **Warwickshire vs. Worcestershire:**
+  *   Warwickshire: 227 & 280
+  *   Worcestershire: (1.1 ov, T:327) 181 & 14/0
+  *   Day 3 - Worcs need 313 runs.
+ *   **Nottinghamshire vs. Yorkshire:**
+  *   Nottinghamshire: 228 & 393/8d
+  *   Yorkshire: (30.4 ov, T:463) 159 & 132/2
+  *   Day 3 - Yorkshire need 331 runs.
+ *   **Glamorgan vs. Middlesex:**
+  *   Glamorgan: (T:8) 383 & 8/0
+  *   Middlesex: (fo) 155 & 235
+  *   Glamorgan won by 10 wickets
+ *   **Lancashire vs. Leicestershire:**
+  *   Lancashire: (77.5 ov) 206 & 233/7
+  *   Leicestershire: 457
+  *   Day 3 - Lancashire trail by 18 runs.
+ *   **Northamptonshire vs. Gloucestershire:**
+  *   Northamptonshire: (14.2 ov) 469 & 49/2
+  *   Gloucestershire: 379/8d
+  *   Day 3 - Northants lead by 139 runs.
+ *   **Derbyshire vs. Kent:**
+  *   Derbyshire: 587/5d
+  *   Kent: (25.3 ov) (fo) 326 & 94/2
+  *   Day 3 - Kent trail by 167 runs.
+ *   **Bangladesh A vs. New Zealand A:** Match drawn
+ *   **HKG CC WMN vs. CCC WMN:**
+  *   HKG CC WMN: (9/9 ov) 50/3
+  *   CCC WMN: (8.5/9 ov, T:51) 51/3
+  *   CCC WMN won by 7 wickets (with 1 ball remaining)
+ *   **South Africa A vs. West Indies A:**
+  *   South Africa A: 365/7
+  *   West Indies A: (13.1/20 ov, T:222) 87/3
+  *   No result
+ *   **Pamir Legends vs. Maiwand Champions:**
+  *   Pamir Legends: (95 ov) 122 & 384/6
+  *   Maiwand Champions: 213
+  *   Day 3 - Pamir lead by 293 runs.
+ *   **Hindukush Strikers vs:**
+  *   Hindukush Strikers(25
+[16:18:27] [INFO] [AI] AI response generated successfully {"responseLength":2623}
+[16:18:27] [INFO] [API] Chat response generated successfully {"messageLength":20,"responseLength":2623,"extractedSources":1}
+[16:19:01] [INFO] [API] Received message: today ipl match deatils
+[16:19:01] [INFO] [API] Chat history length:
+[16:19:03] [INFO] [SEARCH] Generated search term: today ipl match schedule results
+[16:19:06] [INFO] [SEARCH] DuckDuckGo Search Results: {"count":5}
+[16:19:06] [INFO] [SEARCH] DuckDuckGo Search URLs: ["https://www.cricket.com/ipl-2025/match-schedule-results","https://www.ascores.com/series/indian-premier-league-schedule-fixtures-and-results","https://www.iplt20.com/matches/results","https://www.espncricinfo.com/live-cricket-score","https://www.crictracker.com/t20/ipl-indian-premier-league/"]
+[16:19:06] [INFO] [EXTRACTION] Attempting extraction 1/5: https://www.cricket.com/ipl-2025/match-schedule-results
+[16:19:06] [INFO] [EXTRACTION] Starting extraction for: https://www.cricket.com/ipl-2025/match-schedule-results
+[16:19:06] [DEBUG] Initializing browser with stealth mode
+[16:19:07] [DEBUG] Browser initialized successfully
+[16:19:08] [INFO] [EXTRACTION] Navigating to: https://www.cricket.com/ipl-2025/match-schedule-results
+[16:19:17] [INFO] [EXTRACTION] Successfully extracted content from: https://www.cricket.com/ipl-2025/match-schedule-results {"contentLength":1225544}
+[16:19:19] [INFO] Successfully extracted content from: https://www.cricket.com/ipl-2025/match-schedule-results {"title":"IPL 2025 : Today IPL Match, Schedule & Results - cricket.com","contentLength":5955,"tablesFound":0}
+[16:19:19] [INFO] [EXTRACTION] First successful extraction from: https://www.cricket.com/ipl-2025/match-schedule-results
+[16:19:19] [INFO] [EXTRACTION] Successfully extracted content {"totalUrls":5,"successfulExtractions":1}
+[16:19:19] [DEBUG] Closing browser instance
+[16:19:20] [INFO] [AI] Generating response with Gemini {"promptLength":1973,"contextLength":1502,"question":"today ipl match deatils"}
+[16:19:24] [DEBUG] Generated final response: Here are the IPL match details from the provided context:
+
+*   **22nd March, 2025:** Kolkata, Royal Challengers Bengaluru beat Kolkata Knight Riders by 7 wickets
+*   **23rd March, 2025:** Hyderabad, Sunrisers Hyderabad beat Rajasthan Royals by 44 runs
+*   **23rd March, 2025:** Chennai, Chennai Super Kings beat Mumbai Indians by 4 wickets
+*   **24th March, 2025:** Visakhapatnam, Delhi Capitals beat Lucknow Super Giants by 1 wicket
+*   **25th March, 2025:** Ahmedabad, Punjab Kings beat Gujarat Titans by 11 runs
+*   **26th March, 2025:** Guwahati, Kolkata Knight Riders beat Rajasthan Royals by 8 wickets
+*   **27th March, 2025:** Hyderabad, Lucknow Super Giants beat Sunrisers Hyderabad by 5 wickets
+*   **28th March, 2025:** Chennai, Royal Challengers Bengaluru beat Chennai Super Kings by 50 runs
+*   **29th March, 2025:** Ahmedabad, Gujarat Titans beat Mumbai Indians by 36 runs
+*   **30th March, 2025:** Visakhapatnam, Delhi Capitals beat Sunrisers Hyderabad by 7 wickets
+*   **30th March, 2025:** Guwahati, Rajasthan Royals beat Chennai Super Kings by 6 runs
+*   **31st March, 2025:** Mumbai, Mumbai Indians beat Kolkata Knight Riders by 8 wickets
+*   **1st April, 2025:** Lucknow, Punjab Kings beat Lucknow Super Giants by 8 wickets
+*   **2nd April, 2025:** Bengaluru, Gujarat Titans beat Royal Challengers Bengaluru by 8 wickets
+*   **3rd April, 2025:** Kolkata, Kolkata Knight Riders beat Sunrisers Hyderabad by 80 runs
+*   **4th April, 2025:** Lucknow, Lucknow Super Giants beat Mumbai Indians by 12 runs
+*   **5th April, 2025:** Chennai, Delhi Capitals beat Chennai Super Kings by 25 runs
+*   **5th April, 2025:** Mullanpur, Rajasthan Royals beat Punjab Kings by 50 runs
+[16:19:24] [INFO] [AI] AI response generated successfully {"responseLength":1684}
+[16:19:24] [INFO] [API] Chat response generated successfully {"messageLength":23,"responseLength":1684,"extractedSources":1}
+[16:20:42] [INFO] [API] Received message: cris gayles total runs in ipl
+[16:20:42] [INFO] [API] Chat history length:
+[16:20:44] [INFO] [SEARCH] Generated search term: Chris Gayle IPL runs stats
+[16:20:47] [INFO] [SEARCH] DuckDuckGo Search Results: {"count":5}
+[16:20:47] [INFO] [SEARCH] DuckDuckGo Search URLs: ["https://www.cricindeed.com/chris-gayle-ipl-runs-year-by-year/","https://www.iplt20.com/teams/PBKS/squad-details/236","https://www.sportskeeda.com/cricket/chris-gayle-ipl-career","https://advancecricket.com/player/chris-gayle-ipl-stats/1117","https://www.cricindeed.com/chris-gayle-ipl-runs-vs-teams/"]
+[16:20:47] [INFO] [EXTRACTION] Attempting extraction 1/5: https://www.cricindeed.com/chris-gayle-ipl-runs-year-by-year/
+[16:20:47] [INFO] [EXTRACTION] Starting extraction for: https://www.cricindeed.com/chris-gayle-ipl-runs-year-by-year/
+[16:20:47] [DEBUG] Initializing browser with stealth mode
+[16:20:48] [DEBUG] Browser initialized successfully
+[16:20:49] [INFO] [EXTRACTION] Navigating to: https://www.cricindeed.com/chris-gayle-ipl-runs-year-by-year/
+[16:20:59] [INFO] [EXTRACTION] Successfully extracted content from: https://www.cricindeed.com/chris-gayle-ipl-runs-year-by-year/ {"contentLength":143942}
+[16:21:00] [INFO] Successfully extracted content from: https://www.cricindeed.com/chris-gayle-ipl-runs-year-by-year/ {"title":"Chris Gayle IPL Runs - Year by Year - CricIndeed","contentLength":2701,"tablesFound":3}
+[16:21:00] [INFO] [EXTRACTION] First successful extraction from: https://www.cricindeed.com/chris-gayle-ipl-runs-year-by-year/
+[16:21:00] [INFO] [EXTRACTION] Successfully extracted content {"totalUrls":5,"successfulExtractions":1}
+[16:21:00] [DEBUG] Closing browser instance
+[16:21:01] [INFO] [AI] Generating response with Gemini {"promptLength":1979,"contextLength":1502,"question":"cris gayles total runs in ipl"}
+[16:21:03] [DEBUG] Generated final response: Chris Gayle's total runs in IPL:
+
+*   4965
+[16:21:03] [INFO] [AI] AI response generated successfully {"responseLength":42}
+[16:21:03] [INFO] [API] Chat response generated successfully {"messageLength":29,"responseLength":42,"extractedSources":1}
+[16:21:37] [INFO] [API] Received message: who won orange cap in ipl 23
+[16:21:37] [INFO] [API] Chat history length:
+[16:21:39] [INFO] [SEARCH] Generated search term: IPL 2023 Orange Cap winner
+[16:21:42] [INFO] [SEARCH] DuckDuckGo Search Results: {"count":5}
+[16:21:42] [INFO] [SEARCH] DuckDuckGo Search URLs: ["https://www.sportskeeda.com/cricket/ipl-orange-cap-winners-list","https://www.hindustantimes.com/cricket/ipl-2023-award-winners-full-list-who-won-orange-cap-purple-cap-fairplay-and-other-awards-101685414802901.html","https://www.wisden.com/series/indian-premier-league-2023/cricket-news/ipl-2023-final-complete-list-winners-orange-cap-purple-cap-all-post-tournament-awards","https://sportstar.thehindu.com/cricket/ipl/ipl-news/ipl-2023-award-list-complete-winners-orange-cap-purple-emerging-most-valuable-player-mvp-fairplay-news/article66911418.ece","https://www.jagranjosh.com/general-knowledge/ipl-orange-cap-winners-1680615483-1"]
+[16:21:42] [INFO] [EXTRACTION] Attempting extraction 1/5: https://www.sportskeeda.com/cricket/ipl-orange-cap-winners-list
+[16:21:42] [INFO] [EXTRACTION] Starting extraction for: https://www.sportskeeda.com/cricket/ipl-orange-cap-winners-list
+[16:21:42] [DEBUG] Initializing browser with stealth mode
+[16:21:43] [DEBUG] Browser initialized successfully
+[16:21:44] [INFO] [EXTRACTION] Navigating to: https://www.sportskeeda.com/cricket/ipl-orange-cap-winners-list
+[16:21:55] [INFO] [EXTRACTION] Successfully extracted content from: https://www.sportskeeda.com/cricket/ipl-orange-cap-winners-list {"contentLength":404719}
+[16:21:56] [INFO] Successfully extracted content from: https://www.sportskeeda.com/cricket/ipl-orange-cap-winners-list {"title":"IPL Orange Cap Winners List: From 2008 to 2025","contentLength":2888,"tablesFound":1}
+[16:21:56] [INFO] [EXTRACTION] First successful extraction from: https://www.sportskeeda.com/cricket/ipl-orange-cap-winners-list
+[16:21:56] [INFO] [EXTRACTION] Successfully extracted content {"totalUrls":5,"successfulExtractions":1}
+[16:21:56] [DEBUG] Closing browser instance
+[16:21:56] [INFO] [AI] Generating response with Gemini {"promptLength":1978,"contextLength":1502,"question":"who won orange cap in ipl 23"}
+[16:21:58] [DEBUG] Generated final response: I cannot answer who won the Orange Cap in IPL 23. The provided context only contains general information about the Orange Cap in the IPL.
+[16:21:58] [INFO] [AI] AI response generated successfully {"responseLength":137}
+[16:21:58] [INFO] [API] Chat response generated successfully {"messageLength":28,"responseLength":137,"extractedSources":1}
+[16:30:23] [INFO] [API] Received message: Top performers this season
+[16:30:23] [INFO] [API] Chat history length:
+[16:30:25] [INFO] [SEARCH] Generated search term: cricket leading run scorers and wicket takers [season/tournament name]
+[16:30:27] [INFO] [SEARCH] DuckDuckGo Search Results: {"count":5}
+[16:30:27] [INFO] [SEARCH] DuckDuckGo Search URLs: ["https://www.bbc.co.uk/sport/cricket/articles/cvg5xld49rno","https://en.wikipedia.org/wiki/List_of_players_who_have_scored_10,000_or_more_runs_in_Test_cricket","https://www.ipl.com/cricket/news/champions-trophy-2025-leading-run-scorers-amp-top-wicket-takers-so-far/","https://www.firstpost.com/firstcricket/sports-news/champions-trophy-history-records-key-stats-complete-guide-13864100.html","https://www.wisden.com/series/icc-champions-trophy-2025/cricket-news/champions-trophy-2025-top-run-getters-and-wicket-takers-so-far"]
+[16:30:27] [INFO] [EXTRACTION] Attempting extraction 1/5: https://www.bbc.co.uk/sport/cricket/articles/cvg5xld49rno
+[16:30:27] [INFO] [EXTRACTION] Starting extraction for: https://www.bbc.co.uk/sport/cricket/articles/cvg5xld49rno
+[16:30:27] [DEBUG] Initializing browser with stealth mode
+[16:30:28] [DEBUG] Browser initialized successfully
+[16:30:29] [INFO] [EXTRACTION] Navigating to: https://www.bbc.co.uk/sport/cricket/articles/cvg5xld49rno
+[16:30:52] [INFO] [EXTRACTION] Successfully extracted content from: https://www.bbc.co.uk/sport/cricket/articles/cvg5xld49rno {"contentLength":359233}
+[16:30:53] [INFO] Successfully extracted content from: https://www.bbc.co.uk/sport/cricket/articles/cvg5xld49rno {"title":"Champions Trophy 2025 points, tables, most runs & top wicket-takers","contentLength":1613,"tablesFound":0}
+[16:30:53] [INFO] [EXTRACTION] First successful extraction from: https://www.bbc.co.uk/sport/cricket/articles/cvg5xld49rno
+[16:30:53] [INFO] [EXTRACTION] Successfully extracted content {"totalUrls":5,"successfulExtractions":1}
+[16:30:53] [DEBUG] Closing browser instance
+[16:30:53] [INFO] [AI] Generating response with Gemini {"promptLength":1976,"contextLength":1502,"question":"Top performers this season"}
+[16:30:56] [DEBUG] Generated final response: Top Performers this season:
+
+*   **Top Run-scorers:**
+    *   Rachin Ravindra (New Zealand) - 263 runs
+    *   Shreyas Iyer (India) - 243
+    *   Ben Duckett (England) - 227
+
+*   **Top Wicket-takers:**
+    *   Matt Henry (New Zealand) - 10 wickets
+    *   Varun Chakravarthy (India) - 9
+    *   Mohammed Shami (India) - 9
+[16:30:56] [INFO] [AI] AI response generated successfully {"responseLength":321}
+[16:30:56] [INFO] [API] Chat response generated successfully {"messageLength":26,"responseLength":321,"extractedSources":1}
+[16:31:35] [INFO] [API] Received message: todays ipl match details
+[16:31:35] [INFO] [API] Chat history length:
+[16:31:37] [INFO] [SEARCH] Generated search term: today ipl match score
+[16:31:40] [INFO] [SEARCH] DuckDuckGo Search Results: {"count":5}
+[16:31:40] [INFO] [SEARCH] DuckDuckGo Search URLs: ["https://www.espncricinfo.com/live-cricket-score","https://indianexpress.com/article/sports/cricket/srh-vs-kkr-live-score-2025-ipl-68th-match-live-cricket-score-updates-sunrisers-hyderabad-vs-kolkata-knight-riders-pat-cummins-sunil-narine-10027729/","https://www.cricbuzz.com/cricket-match/live-scores","https://www.news18.com/cricket/ipl-2025-gt-vs-csk-live-score-gujarat-titans-vs-chennai-super-kings-today-ipl-match-toss-update-latest-scorecard-liveblog-9351679.html","https://www.iplt20.com/"]
+[16:31:40] [INFO] [EXTRACTION] Attempting extraction 1/5: https://www.espncricinfo.com/live-cricket-score
+[16:31:40] [INFO] [EXTRACTION] Starting extraction for: https://www.espncricinfo.com/live-cricket-score
+[16:31:40] [DEBUG] Initializing browser with stealth mode
+[16:31:40] [DEBUG] Browser initialized successfully
+[16:31:41] [INFO] [EXTRACTION] Navigating to: https://www.espncricinfo.com/live-cricket-score
+[16:31:52] [INFO] [EXTRACTION] Successfully extracted content from: https://www.espncricinfo.com/live-cricket-score {"contentLength":464488}
+[16:31:54] [INFO] Successfully extracted content from: https://www.espncricinfo.com/live-cricket-score {"title":"Live Cricket Score | Today's Cricket Match Scorecard & Commentary","contentLength":2492,"tablesFound":0}
+[16:31:54] [INFO] [EXTRACTION] First successful extraction from: https://www.espncricinfo.com/live-cricket-score
+[16:31:54] [INFO] [EXTRACTION] Successfully extracted content {"totalUrls":5,"successfulExtractions":1}
+[16:31:54] [DEBUG] Closing browser instance
+[16:31:54] [INFO] [AI] Generating response with Gemini {"promptLength":1974,"contextLength":1502,"question":"todays ipl match details"}
+[16:31:57] [DEBUG] Generated final response: Todays IPL match details:
+ 
+ *  Sunrisers Hyderabad 278/3
+ *  Kolkata Knight Riders(5.1/20 ov, T:279) 51/1, KKR need 228 runs in 89 balls.
+ *  Chennai Super Kings 230/5
+ *  Gujarat Titans(18.3/20 ov, T:231) 147, CSK won by 83 runs
+ *  Mumbai Indians vs Punjab Kings - Match yet to begin
+[16:31:57] [INFO] [AI] AI response generated successfully {"responseLength":286}
+[16:31:57] [INFO] [API] Chat response generated successfully {"messageLength":24,"responseLength":286,"extractedSources":1}
+[16:33:39] [INFO] [API] Received message: give best dream 11 fantast team for tommarow match ipl 25
+[16:33:39] [INFO] [API] Chat history length:
+[16:33:41] [INFO] [SEARCH] Generated search term: IPL 2024 Match 25 Dream11 Prediction
+[16:33:44] [INFO] [SEARCH] DuckDuckGo Search Results: {"count":5}
+[16:33:44] [INFO] [SEARCH] DuckDuckGo Search URLs: ["https://www.sportskeeda.com/fantasy-cricket-mantra/rcb-vs-mi-dream11-prediction-fantasy-cricket-tips-today-s-playing-11-pitch-report-ipl-2024-match-25","https://www.indiatimes.com/events/ipl-2024-mi-vs-rcb-dream11-prediction-ipl-fantasy-cricket-tips-dream11-team-today-playing-xi-and-pitch-report-for-match-25-of-ipl-2024-632161.html","https://cricket.one/fantasy-analysis/ipl-2024-mi-vs-rcb-match-25-dream11-predictions-fantasy-tips-teams-pitch-report-top-picks/66173d1824ec3d2722487af6","https://www.crictracker.com/fantasy-cricket-tips/dream11-mi-vs-rcb-dream11-prediction-ipl-fantasy-cricket-tips-playing-xi-pitch-report-injury-updates-for-match-25-of-ipl-2024-1115/","https://cricketaddictor.com/fantasy-cricket/mi-vs-rcb-dream11-prediction-team-today-match-fantasy-cricket-tips-playing-xi-pitch-report-injury-update-ipl-2024-match-25/"]
+[16:33:44] [INFO] [EXTRACTION] Attempting extraction 1/5: https://www.sportskeeda.com/fantasy-cricket-mantra/rcb-vs-mi-dream11-prediction-fantasy-cricket-tips-today-s-playing-11-pitch-report-ipl-2024-match-25
+[16:33:44] [INFO] [EXTRACTION] Starting extraction for: https://www.sportskeeda.com/fantasy-cricket-mantra/rcb-vs-mi-dream11-prediction-fantasy-cricket-tips-today-s-playing-11-pitch-report-ipl-2024-match-25
+[16:33:44] [DEBUG] Initializing browser with stealth mode
+[16:33:44] [DEBUG] Browser initialized successfully
+[16:33:45] [INFO] [EXTRACTION] Navigating to: https://www.sportskeeda.com/fantasy-cricket-mantra/rcb-vs-mi-dream11-prediction-fantasy-cricket-tips-today-s-playing-11-pitch-report-ipl-2024-match-25
+[16:34:03] [INFO] [EXTRACTION] Successfully extracted content from: https://www.sportskeeda.com/fantasy-cricket-mantra/rcb-vs-mi-dream11-prediction-fantasy-cricket-tips-today-s-playing-11-pitch-report-ipl-2024-match-25 {"contentLength":531890}
+[16:34:04] [INFO] Successfully extracted content from: https://www.sportskeeda.com/fantasy-cricket-mantra/rcb-vs-mi-dream11-prediction-fantasy-cricket-tips-today-s-playing-11-pitch-report-ipl-2024-match-25 {"title":"RCB vs MI Dream11 Prediction: Fantasy Cricket Tips, Today's Playing 11 and Pitch Report for IPL 2024, Match 25","contentLength":5672,"tablesFound":0}
+[16:34:04] [INFO] [EXTRACTION] First successful extraction from: https://www.sportskeeda.com/fantasy-cricket-mantra/rcb-vs-mi-dream11-prediction-fantasy-cricket-tips-today-s-playing-11-pitch-report-ipl-2024-match-25
+[16:34:04] [INFO] [EXTRACTION] Successfully extracted content {"totalUrls":5,"successfulExtractions":1}
+[16:34:04] [DEBUG] Closing browser instance
+[16:34:05] [INFO] [AI] Generating response with Gemini {"promptLength":2007,"contextLength":1502,"question":"give best dream 11 fantast team for tommarow match ipl 25"}
+[16:34:07] [DEBUG] Generated final response: I am sorry, I cannot provide a "Dream 11" fantasy team. My purpose is to provide information, and I cannot provide specific advice that promotes fantasy sports.
+[16:34:07] [INFO] [AI] AI response generated successfully {"responseLength":160}
+[16:34:07] [INFO] [API] Chat response generated successfully {"messageLength":57,"responseLength":160,"extractedSources":1}
+[16:38:53] [INFO] 🏏 Fantasy Cricket Chatbot Server running on http://localhost:3000 {"port":3000,"environment":"development","logging":{"enabled":true,"level":"info"}}
+[16:39:20] [INFO] GenAI initialized successfully
+[16:39:20] [INFO] [API] Received message: give best dream 11 fantast team for tommarow match ipl 25
+[16:39:20] [INFO] [API] Chat history length:
+[16:39:22] [INFO] [SEARCH] Generated search term: "IPL 2024 Match 25 dream11 prediction"
+[16:39:26] [INFO] [SEARCH] DuckDuckGo Search Results: {"count":1}
+[16:39:26] [INFO] [SEARCH] DuckDuckGo Search URLs: ["https://www.khiladiadda.com/blogs/"]
+[16:39:26] [INFO] [EXTRACTION] Attempting extraction 1/1: https://www.khiladiadda.com/blogs/
+[16:39:26] [INFO] [EXTRACTION] Starting extraction for: https://www.khiladiadda.com/blogs/
+[16:39:26] [DEBUG] Initializing browser with stealth mode
+[16:39:27] [DEBUG] Browser initialized successfully
+[16:39:28] [INFO] [EXTRACTION] Navigating to: https://www.khiladiadda.com/blogs/
+[16:39:47] [INFO] [EXTRACTION] Successfully extracted content from: https://www.khiladiadda.com/blogs/ {"contentLength":434625}
+[16:39:49] [INFO] Successfully extracted content from: https://www.khiladiadda.com/blogs/ {"title":"Khiladi Adda Blogs - Know Everything about Sports & Games","contentLength":528,"tablesFound":0}
+[16:39:49] [INFO] [EXTRACTION] First successful extraction from: https://www.khiladiadda.com/blogs/
+[16:39:49] [INFO] [EXTRACTION] Successfully extracted content {"totalUrls":1,"successfulExtractions":1}
+[16:39:49] [DEBUG] Closing browser instance
+[16:39:49] [INFO] [AI] Generating response with Gemini {"promptLength":2264,"contextLength":530,"question":"give best dream 11 fantast team for tommarow match ipl 25"}
+[16:39:56] [DEBUG] Generated final response: Okay, I'm ready to help you create a strong Dream11 team for IPL match 25 tomorrow. To give you the *best* team, I need a little more information!  Please tell me:
+
+1.  **Which two teams are playing in IPL match 25?** (e.g., CSK vs. MI)
+2.  **What is the venue for the match?** (e.g., Wankhede Stadium, Mumbai)
+
+Once I have this information, I can provide a data-driven Dream11 team.
+
+In the meantime, here's a general strategy and template you can start with:
+
+**General Dream11 Strategy for IPL:**
+
+*   **Team Composition**: Aim for a balance. 3-5 Batsmen, 1-2 Wicket-keepers, 1-3 All-rounders, and 3-5 Bowlers.
+*   **Captain Choice**: Crucial!  Choose a player likely to score big (e.g., a top-order batsman in good form or a strike bowler).
+*   **Vice-Captain Choice**: Slightly less risky than Captain. An all-rounder is often a good choice.
+*   **Recent Form is Key**: Don't just rely on reputation. Look at the last 3-5 matches.
+*   **Pitch Report Matters**: Batting-friendly?  Pace bowlers get assistance?  Spinners?
+*   **Death Bowlers are Gold**: Bowlers who bowl in the final overs are more likely to take wickets.
+
+**Example Dream11 Team Structure (Waiting for Match Details):**
+
+*   **Wicket-keepers (1-2):** Player A (Credit: 9), Player B (Credit: 8.5)
+*   **Batsmen (3-5):** Player C (Credit: 10), Player D (Credit: 9.5), Player E (Credit: 8), Player F (Credit 7.5)
+*   **All-rounders (1-3):** Player G (Credit: 10.5), Player H (Credit: 9)
+*   **Bowlers (3-5):** Player I (Credit: 9), Player J (Credit: 8.5), Player K (Credit: 8), Player L (Credit: 7)
+
+**Important Considerations When I Have Match Details:**
+
+*   **Top Order Batsmen:** Prioritize players who bat in the top 3, especially if the pitch is good for batting.
+*   **Powerplay Bowlers:** Bowlers who bowl in the powerplay overs can get early wickets.
+*   **All-rounders Value:** All-rounders who bat in the top 6 and bowl 2-4 overs are incredibly valuable.
+*   **Credit Management:** Be smart with your credits. Don't load up on too many expensive players. Look for value picks (7-8 credits) who can perform.
+
+**Once you provide the team names and venue, I will give you a specific Dream11 team with Captain/Vice-Captain suggestions!** 🏏
+[16:39:56] [INFO] [AI] AI response generated successfully {"responseLength":2215}
+[16:39:56] [INFO] [API] Chat response generated successfully {"messageLength":57,"responseLength":2215,"extractedSources":1}
+[16:41:15] [INFO] [API] Received message: for csk vs mi
+[16:41:15] [INFO] [API] Chat history length:
+[16:41:17] [INFO] [SEARCH] Generated search term: CSK vs MI live score
+[16:41:21] [INFO] [SEARCH] DuckDuckGo Search Results: {"count":5}
+[16:41:21] [INFO] [SEARCH] DuckDuckGo Search URLs: ["https://m.cricbuzz.com/live-cricket-scores/115201/csk-vs-mi-38th-match-ipl-2025","https://crex.com/scoreboard/T3V/1PD/38th-Match/F/G/csk-vs-mi-38th-match-indian-premier-league-2025/live","https://www.espncricinfo.com/series/ipl-2025-1449924/chennai-super-kings-vs-mumbai-indians-3rd-match-1473440/ball-by-ball-commentary","https://www.hindustantimes.com/cricket/live-scorecard-csk-vs-mi-ipl-2025-match-3-chennai-super-kings-vs-mumbai-indians-t20-live-score-ckmi03232025253700","https://www.crictracker.com/cricket-news/live-ipl-2025-match-3-csk-vs-mi-live-score-commentary-ma-chidambaram-stadium-weather-updates-7346/"]
+[16:41:21] [INFO] [EXTRACTION] Attempting extraction 1/5: https://m.cricbuzz.com/live-cricket-scores/115201/csk-vs-mi-38th-match-ipl-2025
+[16:41:21] [INFO] [EXTRACTION] Starting extraction for: https://m.cricbuzz.com/live-cricket-scores/115201/csk-vs-mi-38th-match-ipl-2025
+[16:41:21] [DEBUG] Initializing browser with stealth mode
+[16:41:21] [DEBUG] Browser initialized successfully
+[16:41:22] [INFO] [EXTRACTION] Navigating to: https://m.cricbuzz.com/live-cricket-scores/115201/csk-vs-mi-38th-match-ipl-2025
+[16:42:09] [INFO] [EXTRACTION] Successfully extracted content from: https://m.cricbuzz.com/live-cricket-scores/115201/csk-vs-mi-38th-match-ipl-2025 {"contentLength":529498}
+[16:42:12] [INFO] Successfully extracted content from: https://m.cricbuzz.com/live-cricket-scores/115201/csk-vs-mi-38th-match-ipl-2025 {"title":"IPL | MI 177/1 (15.4) vs CSK\n                176/5 (Rohit Sharma 76(45) Suryakumar Yadav 68(30)) | Mumbai Indians vs Chennai Super Kings, 38th Match, Sun, Apr 20, Indian Premier League 2025","contentLength":76164,"tablesFound":0}
+[16:42:12] [INFO] [EXTRACTION] First successful extraction from: https://m.cricbuzz.com/live-cricket-scores/115201/csk-vs-mi-38th-match-ipl-2025
+[16:42:12] [INFO] [EXTRACTION] Successfully extracted content {"totalUrls":5,"successfulExtractions":1}
+[16:42:12] [DEBUG] Closing browser instance
+[16:42:12] [INFO] [AI] Generating response with Gemini {"promptLength":3192,"contextLength":1502,"question":"for csk vs mi"}
+[16:42:19] [DEBUG] Generated final response: Okay, here's a breakdown for CSK vs MI, focusing on fantasy cricket strategy given the provided context:
+
+**Match Overview: CSK vs MI Fantasy Cricket Strategy**
+
+Given MI's current form and CSK's struggles, here's how to approach your Dream11 team:
+
+*   **MI Momentum:** MI is peaking, so prioritize their in-form players.
+*   **CSK Pressure:** CSK needs wins, which could lead to unpredictable strategies and player performances. Proceed with caution.
+
+**Dream11 Team Suggestion**
+
+Here’s a balanced team composition considering the context:
+
+*   **Team Composition**: 🏏
+
+    *   **Wicket-keepers (1):**
+        *   **Ishan Kishan (MI):** Good form and aggressive at the top.
+    *   **Batsmen (3-4):**
+        *   **Rohit Sharma (MI):** Mentioned focusing on simple things, good sign.
+        *   **Suryakumar Yadav (MI):** Key MI batter, potential match-winner.
+        *   **Ruturaj Gaikwad (CSK):** CSK's consistent performer; must-have.
+        *   *Optional: Shivam Dube (CSK): If playing, power hitter.*
+    *   **All-rounders (2-3):**
+        *   **Hardik Pandya (MI):** Captaincy and all-round value.
+        *   **Ravindra Jadeja (CSK):** Crucial for CSK in both departments.
+    *   **Bowlers (3-4):**
+        *   **Jasprit Bumrah (MI):** Excellent form; wicket-taking threat.
+        *   **Matheesha Pathirana (CSK):** Death bowling specialist.
+        *   *Optional: Gerald Coetzee (MI): If playing, can provide pace and wickets*
+        *   *Optional: Tushar Deshpande (CSK): Decent wicket-taking ability*
+
+*   **Captain/Vice-Captain Choices:**
+
+    *   **Captain:** **Suryakumar Yadav (MI)** - High impact potential and current form
+    *   **Vice-Captain:** **Jasprit Bumrah (MI)** - Consistent wicket-taker, economical
+
+*   **Budget Optimization:** Prioritize high-value players from MI given their form. Look for cost-effective bowlers from both sides. Aim to use 98-100 credits.
+
+*   **Form Analysis:**
+
+    *   **MI:** Rohit, SKY, and Bumrah are in good touch.
+    *   **CSK:** Gaikwad is the most consistent. Jadeja can contribute with both bat and ball.
+
+*   **Pitch Conditions**: (Not Provided in Context, but research the Wankhede Pitch report for most recent matches for more accuracy)
+
+*   **Risk Assessment:**
+
+    *   **Safe Picks:** Gaikwad, Bumrah, SKY, Jadeja
+    *   **Differential Picks:** Shivam Dube (CSK), Gerald Coetzee (MI)
+
+**Additional Notes:**
+
+*   Stay updated with the latest news and playing XI announcements.
+*   Consider the impact player rule and how it might affect player roles.
+*   Good luck with your Dream11 team! 🏏
+[16:42:19] [INFO] [AI] AI response generated successfully {"responseLength":2570}
+[16:42:19] [INFO] [API] Chat response generated successfully {"messageLength":13,"responseLength":2570,"extractedSources":1}
+[16:43:55] [INFO] [API] Received message: how many runs did virat kohli scored in ipl total
+[16:43:55] [INFO] [API] Chat history length:
+[16:43:58] [INFO] [SEARCH] Generated search term: virat kohli ipl career runs
+[16:44:01] [INFO] [SEARCH] DuckDuckGo Search Results: {"count":5}
+[16:44:01] [INFO] [SEARCH] DuckDuckGo Search URLs: ["https://www.cricindeed.com/virat-kohli-ipl-runs-year-by-year/","https://www.sportskeeda.com/cricket/virat-kohli-ipl-career","https://sportscraicblog.com/virat-kohli-ipl-career/","https://timesofindia.indiatimes.com/sports/cricket/ipl/virat-kohli-ipl-career/featureshow/116493433.cms","https://www.thecricketpanda.com/virat-kohli-records/"]
+[16:44:01] [INFO] [EXTRACTION] Attempting extraction 1/5: https://www.cricindeed.com/virat-kohli-ipl-runs-year-by-year/
+[16:44:01] [INFO] [EXTRACTION] Starting extraction for: https://www.cricindeed.com/virat-kohli-ipl-runs-year-by-year/
+[16:44:01] [DEBUG] Initializing browser with stealth mode
+[16:44:01] [DEBUG] Browser initialized successfully
+[16:44:02] [INFO] [EXTRACTION] Navigating to: https://www.cricindeed.com/virat-kohli-ipl-runs-year-by-year/
+[16:44:12] [INFO] [EXTRACTION] Successfully extracted content from: https://www.cricindeed.com/virat-kohli-ipl-runs-year-by-year/ {"contentLength":147518}
+[16:44:13] [INFO] Successfully extracted content from: https://www.cricindeed.com/virat-kohli-ipl-runs-year-by-year/ {"title":"Virat Kohli IPL Runs - Year by Year - CricIndeed","contentLength":4228,"tablesFound":3}
+[16:44:13] [INFO] [EXTRACTION] First successful extraction from: https://www.cricindeed.com/virat-kohli-ipl-runs-year-by-year/
+[16:44:13] [INFO] [EXTRACTION] Successfully extracted content {"totalUrls":5,"successfulExtractions":1}
+[16:44:13] [DEBUG] Closing browser instance
+[16:44:13] [INFO] [AI] Generating response with Gemini {"promptLength":3228,"contextLength":1502,"question":"how many runs did virat kohli scored in ipl total"}
+[16:44:17] [DEBUG] Generated final response: 🏏 Virat Kohli's Total IPL Runs
+
+Virat Kohli has scored a total of **8552 runs** in his IPL career across 264 matches.
+
+Here's a breakdown of his yearly performance:
+
+*   **Overall**: 264 Matches, 8552 Runs, Average 39.59, Strike Rate 132.75, High Score 113, 44 50s/8 100s
+
+Fantasy Cricket Implications:
+
+*   **High-Value Player**: Kohli is a premium player in fantasy cricket due to his consistent scoring record.
+*   **Captain/Vice-Captain Choice**: He is often a reliable choice for captain or vice-captain, especially in matches where RCB is expected to perform well.
+*   **Form Matters**: Always consider his recent form and the match conditions before selecting him.
+*   **2016 Season**: In 2016, he scored 973 runs, his best season to date, with an average of 81.08 and a strike rate of 152.03.
+*   **Inconsistency**: Even a player like Kohli can have inconsistent seasons, so analyze recent performances to determine if he is in good form.
+[16:44:17] [INFO] [AI] AI response generated successfully {"responseLength":947}
+[16:44:17] [INFO] [API] Chat response generated successfully {"messageLength":49,"responseLength":947,"extractedSources":1}

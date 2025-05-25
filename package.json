@@ -1,0 +1,45 @@
+{
+  "name": "cricfan-chatbot",
+  "version": "1.0.0",
+  "description": "AI-powered cricket chatbot with web scraping and content extraction capabilities",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "NODE_ENV=development node server.js",
+    "prod": "NODE_ENV=production node server.js",
+    "deploy": "./deploy.sh",
+    "docker:build": "docker build -t cricfan-chatbot .",
+    "docker:run": "docker run -p 3000:3000 cricfan-chatbot",
+    "docker:compose": "docker-compose up -d",
+    "health": "curl -f http://localhost:3000/ || exit 1",
+    "logs": "tail -f logs/*.log",
+    "test": "node tests/health-check.js",
+    "test:api": "node tests/health-check.js"
+  },
+  "dependencies": {
+    "@google/genai": "^1.0.1",
+    "@google/generative-ai": "^0.24.1",
+    "@mozilla/readability": "^0.6.0",
+    "axios": "^1.9.0",
+    "cheerio": "^1.0.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "https": "^1.0.0",
+    "jsdom": "^22.0.0",
+    "puppeteer": "^24.9.0",
+    "puppeteer-extra": "^3.3.6",
+    "puppeteer-extra-plugin-stealth": "^2.11.2"
+  },
+  "keywords": [
+    "cricket",
+    "chatbot",
+    "ai",
+    "web-scraping",
+    "content-extraction",
+    "express",
+    "nodejs"
+  ],
+  "author": "CricFan Team",
+  "license": "MIT"
+}

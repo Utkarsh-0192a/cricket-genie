@@ -8,6 +8,13 @@ require('dotenv').config();
 let GoogleGenerativeAI;
 let genAI;
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
+// Default chat history set to todays date
+const today = new Date();
+const deafult_chat_history = {
+    user: `What is the current date?`,
+    assistant: `Today's date is ${today.toLocaleDateString()}.`
+};
+
 
 // Initialize Google GenAI with dynamic import
 async function initializeGenAI() {
@@ -35,7 +42,7 @@ router.post('/chat', async (req, res) => {
         // Ensure GenAI is initialized
         await initializeGenAI();
         
-        const { message, chatHistory = [] } = req.body;
+        const { message, chatHistory = [deafult_chat_history] } = req.body;
         
         if (!message || message.trim() === '') {
             return res.status(400).json({ error: 'Message is required' });
@@ -89,7 +96,7 @@ router.post('/chat', async (req, res) => {
     }
 });
 
-async function generateCricketResponse(message, chatHistory = []) {
+async function generateCricketResponse(message, chatHistory = [default_chat_history]) {
     // Ensure GenAI is initialized
     await initializeGenAI();
     

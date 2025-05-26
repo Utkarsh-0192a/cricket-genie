@@ -521,51 +521,87 @@ class ContentExtractor {
     }
 
     /**
-     * Extract content from a single URL
+     * Heuristic: Guess if a site is JS-rendered based on HTML content
+     */
+    isLikelyJsRendered(html) {
+        if (!html) return false;
+        // Heuristic 1: Very little text content (very strict)
+        const text = html.replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
+        if (text.length < 30) return true; // Only if almost no text
+        // Heuristic 2: Both 'enable javascript' and 'loading...' present
+        const jsMsg = /enable javascript|please enable javascript/i.test(text);
+        const loadingMsg = /loading\.{0,3}$/i.test(text);
+        if (jsMsg && loadingMsg) return true;
+        // Heuristic 3: More than 40 script tags and text < 100 chars
+        const scriptCount = (html.match(/<script/gi) || []).length;
+        if (scriptCount > 40 && text.length < 100) return true;
+        // Heuristic 4: Framework comments AND no <h1>/<h2>/<p>
+        const framework = /react\b|angular\b|vue\b|__NEXT_DATA__|window\.__NUXT__|window\.__APOLLO_STATE__/i.test(html);
+        if (framework && !/<h1|<h2|<p/i.test(html)) return true;
+        // Otherwise, do NOT trigger Puppeteer
+        return false;
+    }
+
+    /**
+     * Extract content from a single URL (fast: Axios+Readability, fallback: Puppeteer if needed)
      */
     async extractSingle(url) {
         try {
             logger.extraction(`Starting extraction for: ${url}`);
-
-            // Ensure browser is initialized
-            await this.initialize();
-
-            // Try Puppeteer first for JS-rendered content
             let html;
             try {
-                html = await this.extractWithPuppeteer(url);
-            } catch (puppeteerError) {
-                logger.warn(`Puppeteer failed for ${url}, trying Axios`, { error: puppeteerError.message });
                 html = await this.extractWithAxios(url);
+            } catch (axiosError) {
+                logger.warn(`Axios failed for ${url}, will try Puppeteer`, { error: axiosError.message });
+                html = null;
             }
-
-            // Process with Readability
-            const readabilityResult = this.processWithReadability(html, url);
-
-            // Structure content for AI consumption
-            const structuredContent = this.structureContent(readabilityResult, url);
-
-            // If no tables were found in readability result, try extracting from raw HTML
-            if (!structuredContent.content.tables || structuredContent.content.tables.length === 0) {
-                const rawTables = this.extractTables(html);
-                if (rawTables.length > 0) {
-                    structuredContent.content.tables = rawTables;
-                    logger.debug(`Found ${rawTables.length} tables in raw HTML for ${url}`);
+            // Only use Puppeteer if Axios failed or heuristics are very strong
+            if (html && !this.isLikelyJsRendered(html)) {
+                const readabilityResult = this.processWithReadability(html, url);
+                const structuredContent = this.structureContent(readabilityResult, url);
+                if (!structuredContent.content.tables || structuredContent.content.tables.length === 0) {
+                    const rawTables = this.extractTables(html);
+                    if (rawTables.length > 0) {
+                        structuredContent.content.tables = rawTables;
+                        logger.debug(`Found ${rawTables.length} tables in raw HTML for ${url}`);
+                    }
                 }
+                logger.info(`Successfully extracted content from: ${url} (Axios)`, {
+                    title: structuredContent.metadata.title,
+                    contentLength: structuredContent.content.text.length,
+                    tablesFound: structuredContent.content.tables?.length || 0
+                });
+                return {
+                    success: true,
+                    url: url,
+                    data: structuredContent
+                };
             }
-
-            logger.info(`Successfully extracted content from: ${url}`, {
-                title: structuredContent.metadata.title,
-                contentLength: structuredContent.content.text.length,
-                tablesFound: structuredContent.content.tables?.length || 0
-            });
-
-            return {
-                success: true,
-                url: url,
-                data: structuredContent
-            };
-
+            // Only fallback to Puppeteer if absolutely necessary
+            if (!html || this.isLikelyJsRendered(html)) {
+                logger.extraction(`Falling back to Puppeteer for: ${url}`);
+                await this.initialize();
+                html = await this.extractWithPuppeteer(url);
+                const readabilityResult = this.processWithReadability(html, url);
+                const structuredContent = this.structureContent(readabilityResult, url);
+                if (!structuredContent.content.tables || structuredContent.content.tables.length === 0) {
+                    const rawTables = this.extractTables(html);
+                    if (rawTables.length > 0) {
+                        structuredContent.content.tables = rawTables;
+                        logger.debug(`Found ${rawTables.length} tables in raw HTML for ${url}`);
+                    }
+                }
+                logger.info(`Successfully extracted content from: ${url} (Puppeteer)`, {
+                    title: structuredContent.metadata.title,
+                    contentLength: structuredContent.content.text.length,
+                    tablesFound: structuredContent.content.tables?.length || 0
+                });
+                return {
+                    success: true,
+                    url: url,
+                    data: structuredContent
+                };
+            }
         } catch (error) {
             logger.error(`Failed to extract content from ${url}`, { error: error.message });
             return {

@@ -832,10 +832,12 @@
         }
 
         // Form submission
-        chatForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
+        chatForm.addEventListener('submit', function(e) {
+            e.preventDefault(); // Prevent page reload
             const message = userInput.value.trim();
-            handleSubmit(message);
+            if (message) {
+                handleSubmit(message);
+            }
         });
 
         // Quick suggestions
@@ -859,11 +861,13 @@
             userInput.focus();
         });
 
-        // Add enter key support with shift+enter for new lines
-        userInput.addEventListener('keydown', (e) => {
-            if (e.key === 'Enter' && !e.shiftKey) {
+        // Prevent form reload on Enter, only submit if not composing and input is not empty
+        userInput.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' && !e.shiftKey && !e.isComposing) {
                 e.preventDefault();
-                chatForm.dispatchEvent(new Event('submit'));
+                if (userInput.value.trim()) {
+                    chatForm.dispatchEvent(new Event('submit', { cancelable: true }));
+                }
             }
         });
 

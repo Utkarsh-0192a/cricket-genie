@@ -109,7 +109,7 @@ async function generateCricketResponse(message, chatHistory = [default_chat_hist
         });
     }
     
-    const prompt = `You are an advanced cricket assistant. For the question I'm about to ask, provide only a single line with the most relevant search query that will help find current cricket information. Keep it concise and focused.
+    const prompt = `You are an advanced cricket assistant specilised in field of fantasy cricket. For the question given question, provide only a single line with the most relevant search query that will help answer the question accurately.
 ${conversationContext}
 Current question: ${message}`;
 
@@ -188,7 +188,7 @@ Current question: ${message}`;
             return { error: 'Failed to extract content from URLs' };
         } finally {
             // Always clean up the browser
-            await contentExtractor.close();
+            // await contentExtractor.close(); // <-- Disabled for persistent browser optimization
         }
     } catch (error) {
         logger.error('Error generating cricket response:', error);
@@ -299,6 +299,20 @@ Provide a comprehensive, well-formatted answer that addresses the question and o
 }
 
 
+
+// Graceful shutdown: close Puppeteer browser if open
+process.on('exit', async () => {
+    if (ContentExtractor && ContentExtractor.prototype && ContentExtractor.prototype.browser) {
+        try {
+            await ContentExtractor.prototype.close();
+            logger.info('Closed Puppeteer browser on process exit');
+        } catch (e) {
+            logger.warn('Failed to close Puppeteer browser on exit:', e);
+        }
+    }
+});
+process.on('SIGINT', () => process.exit());
+process.on('SIGTERM', () => process.exit());
 
 module.exports = router;
 

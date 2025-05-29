@@ -9,7 +9,7 @@
 - 1GB free disk space
 
 ### API Keys Required
-- **Google Gemini API Key**: Get from [Google AI Studio](https://makersuite.google.com/app/apikey)
+- **Grok API Key**: Get from [Grok Console](https://console.grok.ai/)
 - **Cricket API Key** (optional): For enhanced cricket data
 
 ## Quick Deployment
@@ -38,7 +38,7 @@ nano .env
 
 Required environment variables:
 ```env
-GEMINI_API_KEY=your_actual_gemini_api_key
+GROQ_API_KEY=your_actual_grok_api_key
 NODE_ENV=production
 PORT=3000
 LOGGING_ENABLED=false
@@ -69,7 +69,7 @@ mkdir -p logs config docs tests
 ### Step 3: Set Environment Variables
 Create a `.env` file with the following minimum configuration:
 ```env
-GEMINI_API_KEY=your_gemini_api_key_here
+GROQ_API_KEY=your_grok_api_key_here
 NODE_ENV=production
 PORT=3000
 LOGGING_ENABLED=false
@@ -94,7 +94,7 @@ docker build -t cricfan-chatbot .
 
 # Run the container
 docker run -p 3000:3000 \
-  -e GEMINI_API_KEY=your_api_key \
+  -e GROQ_API_KEY=your_api_key \
   -e NODE_ENV=production \
   cricfan-chatbot
 ```

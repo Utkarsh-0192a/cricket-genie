@@ -75,7 +75,7 @@ Content-Type: application/json
 ## Features
 
 ### 1. AI-Powered Responses
-- Uses Google's Gemini AI model for generating cricket-related responses
+- Uses Grok AI (X.AI) with Meta Llama 4 Scout model for generating cricket-related responses
 - Contextual understanding of cricket terminology and concepts
 - Provides detailed analysis and insights
 
